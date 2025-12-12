@@ -40,12 +40,10 @@
 
   --background-image-auth-dark: url("/images/auth-dark.png");
   --background-image-auth-light: url("/images/auth-light.png");
-
+  
   --breakpoint-xs: 420px;
 
   --font-inter: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
-  --font-sans: var(--font-geist-sans);
   --font-space-grotesk: var(--font-space-grotesk);
 }
 

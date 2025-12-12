@@ -17,7 +17,7 @@ export default function Navbar() {
         </p>
       </Link>
 
-      <p>Global Search</p>
+      <Link href={'/sign-up'}>Global Search</Link>
 
       <div className="flex-between gap-5">
         <Theme/>
