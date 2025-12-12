@@ -1,7 +1,10 @@
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/context/Themes";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 // Inter font setup
 const inter = localFont({
@@ -25,29 +28,33 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={` 
+      <SessionProvider session={session}>
+        <body
+          className={` 
           ${inter.className} 
           ${spacegrotesk.variable}
         antialiased`}
-        suppressHydrationWarning
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+          suppressHydrationWarning
         >
-          {children}
-        </ThemeProvider>
-      </body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>{" "}
+          <Toaster position="top-center" />
+        </body>
+      </SessionProvider>
     </html>
   );
 }
