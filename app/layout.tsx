@@ -38,6 +38,7 @@ export default function RootLayout({
           ${inter.className} 
           ${spacegrotesk.variable}
         antialiased`}
+        suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"
