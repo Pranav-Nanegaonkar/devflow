@@ -16,7 +16,7 @@ export default function SocialAuthForms() {
         redirect: true,
       });
 
-      toast.success("Signin successfully");
+      // toast.success("Signin successfully");
     } catch (error) {
       console.log(error);
       toast.error("Signin Failed");
